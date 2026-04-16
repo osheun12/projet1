@@ -1,0 +1,266 @@
+:root {
+  --color1: #151029;
+  --color2: #60576b;
+  --color3: rgba(145, 139, 145, 0.466);
+  --color4: #574a45;
+}
+@font-face {
+  font-family: "Mplus";
+  src: url(/assets/police/Montserrat-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "Grille";
+  src: url(assets/police/BitcountGridSingle_Cursive-Light.ttf);
+}
+/* ELLEMENT GENERAL */
+* {
+  font-family: "Mplus", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--color1);
+}
+li {
+  list-style: none;
+}
+a,
+a:visited {
+  color: var(--color1);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color2);
+}
+
+body {
+  background: url(/assets/img/fond.jpg) center/cover;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  margin: 30px 30px 40px 30px;
+  font-size: 3.5rem;
+  font-family: "Grille";
+  text-shadow: 5px 2px 8px var(--color2);
+}
+h1::after {
+  content: "";
+  position: absolute;
+  background: var(--color2);
+  height: 1px;
+  top: 82px;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  animation: animeh2 5s ease-in-out forwards;
+}
+@keyframes animeh2 {
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+h2 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  letter-spacing: 1px;
+  font-size: 2.5rem;
+  text-align: center;
+  color: var(--color4);
+}
+
+/**** NAVBAR ****/
+nav {
+  background: rgb(145, 139, 145);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  font-size: calc(0.5rem + 1.5vw);
+}
+nav h3::after {
+  content: "\2619";
+  padding: 10px;
+}
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color1);
+}
+nav a:hover {
+  color: var(--color4);
+}
+
+#icons {
+  cursor: pointer;
+  display: none;
+}
+
+/* HEADER  */
+.header {
+  background: rgba(145, 139, 145, 0.295);
+  box-shadow: 3px 3px 9px 3px black;
+  margin: 50px;
+  padding: 10px 10px;
+  display: flex;
+}
+
+.header-left {
+  width: 30%;
+  border-radius: 10px;
+  box-shadow: -3px 5px 13px 2px black;
+  display: flex;
+}
+
+.header-container-left {
+  display: flex;
+  position: absolute;
+}
+#anim {
+  content: url(assets/img/papillon.png);
+  position: absolute;
+  height: 50px;
+  z-index: 1;
+  animation: papillon 60s infinite linear;
+}
+@keyframes papillon {
+  0% {
+    top: 2%;
+    left: 2%;
+    transform: rotate(90deg);
+  }
+  10% {
+    top: 6%;
+    left: 60%;
+    transform: rotate(108deg);
+  }
+  20% {
+    top: 9%;
+    left: 80%;
+    transform: rotate(120deg);
+  }
+  30% {
+    top: 8%;
+    left: 100%;
+    transform: rotate(113deg);
+  }
+
+  40% {
+    top: 20%;
+    left: 150%;
+    transform: rotate(197deg);
+  }
+  50% {
+    top: 60%;
+    left: 100%;
+    transform: rotate(239deg);
+  }
+  60% {
+    top: 90%;
+    left: 90%;
+    transform: rotate(276deg);
+  }
+  70% {
+    top: 110%;
+    left: 50%;
+    transform: rotate(309deg);
+  }
+  80% {
+    top: 85%;
+    left: 30%;
+    transform: rotate(309deg);
+  }
+  90% {
+    top: 50%;
+    left: 15%;
+    transform: rotate(290deg);
+  }
+  100% {
+    top: 2%;
+    left: 2%;
+    transform: rotate(10deg);
+  }
+}
+
+.header-container-left h4 {
+  padding: 10px;
+  margin: 10px;
+  font-size: 1.5rem;
+}
+.header-container-left li {
+  margin: 20px;
+}
+.header-right {
+  width: 70%;
+}
+.text-container {
+  display: flex;
+}
+.header-contenair-right p {
+  text-align: center;
+  margin: 30px 100px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  line-height: 35px;
+}
+
+/* GALERIE  */
+.galerie {
+  display: grid;
+  text-align: center;
+  margin-top: 75px;
+}
+
+.image {
+  margin-top: 50px;
+}
+
+img {
+  height: 300px;
+  width: 300px;
+  border-radius: 40px;
+  padding: 20px;
+  box-shadow: 3px 2px 9px 2px rgba(0, 0, 0, 0.534);
+  margin: 15px;
+}
+img:hover {
+  transform: scale(1.1);
+  transition: 20s;
+}
+
+/* ********* MEDIA QUERIES **********  */
+@media screen and (max-width: 650px) {
+  #icons {
+    display: block;
+  }
+  #icons:before {
+    content: "\260E";
+  }
+  .active #icons:before {
+    content: "\2715";
+  }
+  nav ul {
+    position: fixed;
+    left: -100%;
+    top: 5%;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    transition: 0.5s;
+  }
+  nav a {
+    padding: 3px 0;
+  }
+
+  nav.active ul {
+    left: 0;
+  }
+}

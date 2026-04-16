@@ -1,0 +1,420 @@
+:root {
+  --color1: #1a1338;
+  --color2: #60576b;
+  --color3: rgba(145, 139, 145, 0.466);
+  --color4: #574a45;
+}
+@font-face {
+  font-family: "Principale";
+  src: url(../assets/police/MonaSans-VariableFont_wdth\,wght.ttf);
+}
+@font-face {
+  font-family: "Title";
+  src: url(../assets/police/BitcountGridSingle_Cursive-Light.ttf);
+}
+
+/* ELLEMENT GENERAL */
+
+* {
+  font-family: "Principale", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--color1);
+  letter-spacing: 1.5px;
+}
+li {
+  list-style: none;
+}
+a,
+a:visited {
+  color: var(--color1);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color2);
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* image de fond */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("../assets/img/fond.jpg") center/cover no-repeat;
+  z-index: -2;
+}
+
+/* overlay clair */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  transition: background 0.4s ease;
+}
+
+/* mode sombre */
+body.dark::after {
+  background: rgba(0, 0, 0, 0.55);
+}
+body.dark footer {
+  background: rgba(131, 128, 126, 0.575);
+}
+
+/* ****** NAVBAR ******  */
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 30px;
+}
+
+nav li {
+  position: relative;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: black;
+  font-size: 1.2rem;
+}
+
+nav li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 10px) scaleY(0);
+  width: 100%;
+  height: 6px;
+  background: var(--color2);
+  transition: transform 0.5s ease;
+}
+
+nav li:hover::before {
+  transform: translate(-50%, -30px) scaleY(1);
+}
+
+.logo-item {
+  width: auto;
+  margin: 0px;
+}
+nav img {
+  position: absolute;
+  height: 135px;
+  top: -68%;
+}
+
+nav button {
+  font-size: 1.5rem;
+  padding: 10px;
+  background: transparent;
+  color: var(--color1);
+  box-shadow: 2px -1px 6px var(--color2);
+  border-radius: 50px;
+}
+
+nav button:hover {
+  scale: 1.1;
+  transition: 20s;
+}
+
+#icons {
+  cursor: pointer;
+  display: none;
+}
+
+/* ***** SECTION MAIN *****  */
+
+main {
+  flex: 1;
+}
+
+.main-left {
+  border: 1px solid transparent;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: -2px 3px 5px 3px var(--color2);
+  height: 250px;
+  width: 250px;
+  overflow: hidden;
+  flex: 0 0 20%;
+  margin: 25px;
+  margin-left: 80px;
+}
+/* ***** Papillon ***** */
+
+/* Dans la boite  */
+.butterfly {
+  width: 50px;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  cursor: pointer;
+  z-index: 10;
+  animation: flyBox 60s infinite linear;
+}
+.main-left:after {
+  content: "Clique sur moi pour me libéré";
+  position: absolute;
+  color: var(--color1);
+  top: 70%;
+  left: 55%;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* vol dans la boîte */
+@keyframes flyBox {
+  0% {
+    top: 2%;
+    left: 2%;
+    transform: rotate(114deg);
+  }
+
+  25% {
+    top: 15%;
+    left: 110%;
+    transform: rotate(130deg);
+  }
+
+  50% {
+    top: 110%;
+    left: 50%;
+    transform: rotate(293deg);
+  }
+
+  75% {
+    top: 60%;
+    left: -20%;
+    transform: rotate(350deg);
+  }
+
+  80% {
+    top: 2%;
+    left: -20%;
+    transform: rotate(63deg);
+  }
+
+  100% {
+    top: 2%;
+    left: 2%;
+    transform: rotate(114deg);
+  }
+}
+
+/* quand il sort */
+.butterfly.fly {
+  position: fixed;
+  width: 50px;
+  z-index: 1;
+  animation: flyPage 160s infinite linear;
+}
+
+/* vol dans la page */
+@keyframes flyPage {
+  0% {
+    top: 2%;
+    left: 2%;
+    transform: rotate(114deg);
+  }
+
+  25% {
+    top: 15%;
+    left: 110%;
+    transform: rotate(120deg);
+  }
+
+  50% {
+    top: 110%;
+    left: 50%;
+    transform: rotate(353deg);
+  }
+
+  75% {
+    top: 60%;
+    left: -20%;
+    transform: rotate(350deg);
+  }
+
+  80% {
+    top: 2%;
+    left: -20%;
+    transform: rotate(63deg);
+  }
+
+  100% {
+    top: 2%;
+    left: 2%;
+    transform: rotate(114deg);
+  }
+}
+
+/* ***** MAIN RIGHT *****  */
+.main-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -5%;
+}
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.typing {
+  display: inline-block;
+  font-family: "Title", monospace;
+  font-size: clamp(1.6rem, 4vw, 4rem);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid var(--color2);
+  width: 0;
+  margin: 0 auto;
+  animation:
+    typing 3s steps(20, end) forwards,
+    cursor 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 20ch;
+  }
+}
+
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 21ch;
+  }
+}
+
+@keyframes cursor {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--color2);
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+p {
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  font-size: 2.5rem;
+  line-height: 160%;
+  animation: main 10s ease;
+}
+@keyframes main {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* ***** FOOTER ***** */
+footer {
+  background: rgba(230, 226, 223, 0.815);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 45px 0;
+  transition:
+    background 0.4s ease,
+    color 0.4s ease;
+}
+
+.logo img {
+  width: auto;
+  height: 50px;
+  margin: 10px;
+}
+
+/* ********* MEDIA QUERIES **********  */
+@media screen and (max-width: 650px) {
+  body {
+    overflow: auto;
+  }
+  #icons {
+    display: block;
+    font-size: 28px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+  }
+
+  #icons::before {
+    content: "\2630";
+  }
+
+  nav.active #icons::before {
+    content: "\2715";
+  }
+
+  nav ul {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(230, 226, 223, 0.815);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    transition: 0.4s;
+    z-index: 1000;
+    transition: background 0.4s ease;
+  }
+  body.dark nav ul {
+    background: rgba(131, 128, 126, 0.575);
+  }
+  nav.active ul {
+    left: 0;
+  }
+
+  nav img {
+    height: 70px;
+    width: auto;
+    margin: -50px;
+  }
+  nav li::before {
+    content: "";
+    background: transparent;
+  }
+
+  .main-container {
+    display: block;
+  }
+}

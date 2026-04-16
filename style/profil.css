@@ -1,0 +1,101 @@
+:root {
+  --color1: #151029;
+  --color2: #847b8f;
+  --color3: rgba(145, 139, 145, 0.466);
+  --color4: #574a45;
+}
+@font-face {
+  font-family: "Mplus";
+  src: url(/assets/police/Montserrat-VariableFont_wght.ttf);
+}
+li {
+  list-style: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Mplus";
+}
+/**** NAVBAR ****/
+.logo-nav {
+  height: 50px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  font-size: calc(0.5rem + 1.2vw);
+  text-transform: uppercase;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color1);
+}
+
+#icons {
+  cursor: pointer;
+  display: none;
+}
+
+/* ****** IMAGE-TOP ******  */
+.main-top {
+  min-height: 500px;
+  min-width: 100%;
+  background: url(/assets/img/fond12.jpg) center/cover;
+  position: relative;
+}
+/* ******MAIN******  */
+.main {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "img texte"
+    "img texte"
+    "img contact";
+}
+
+/* ******MAIN LEFT**********  */
+.main-left {
+  grid-area: img;
+  margin: 20px 3%;
+}
+
+.main-left img {
+  width: 100%;
+  border-radius: 50px;
+}
+
+.main-left #moi {
+  border-radius: 20px;
+  width: 80%;
+  position: relative;
+}
+
+/* ********MAIN RIGHT*********  */
+.main-text {
+  grid-area: texte;
+  text-align: center;
+  letter-spacing: 2px;
+  margin: 20px auto;
+}
+
+.main-contact {
+  grid-area: contact;
+}
+
+.main-contact img {
+  height: 50px;
+  width: 50px;
+}
